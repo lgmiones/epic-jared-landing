@@ -1,7 +1,9 @@
 // Single source of truth for everything on the EPICJARED landing page.
 // Edit prices, ticket links, dates and copy here; components only render it.
 
-const ROLLER_TICKETS = "https://ecom.roller.app/bolderadventurepark/tickets/en-us/home";
+// Kyle's dedicated EPICJARED checkout (Epic Jared Pass: Base Camp $17.99 / All Access $34.99).
+// Its own checkout keeps offer sales separate from regular tickets in ROLLER reporting.
+const ROLLER_TICKETS = "https://ecom.roller.app/bolderadventurepark/epicjaredadmission/en-us/home";
 const BOLDER_UPLOADS = "https://bolderadventurepark.com/wp-content/uploads";
 const JARED_ASSETS = "https://epicjared.com/assets";
 
@@ -31,7 +33,7 @@ export type Pass = {
   // Optional strike-through price. Leave null unless the regular price is confirmed.
   regularPrice: string | null;
   tagline: string;
-  // TODO(Kyle): replace with the EPICJARED Roller ticket links.
+  // EPICJARED Roller checkout (set 16 Oct by Shoab).
   ticketUrl: string;
   image: { src: string; alt: string; width: number; height: number };
   attractions: string[];
@@ -55,7 +57,7 @@ export const passes: Pass[] = [
     price: "17.99",
     regularPrice: null,
     tagline: "All the ground-level action.",
-    ticketUrl: ROLLER_TICKETS,
+    ticketUrl: `${ROLLER_TICKETS}?utm_source=epicjared_landing&utm_medium=referral&utm_campaign=epicjared&utm_content=base-camp`,
     image: {
       src: `${BOLDER_UPLOADS}/2026/05/DSC04155-768x512.webp`,
       alt: "Two kids racing down the tubing slides at Bolder Adventure Park",
@@ -72,7 +74,7 @@ export const passes: Pass[] = [
     price: "34.99",
     regularPrice: null,
     tagline: "The whole park, ground to summit.",
-    ticketUrl: ROLLER_TICKETS,
+    ticketUrl: `${ROLLER_TICKETS}?utm_source=epicjared_landing&utm_medium=referral&utm_campaign=epicjared&utm_content=all-access`,
     image: {
       src: `${BOLDER_UPLOADS}/2025/11/Photo-Carousel_RopesCourse_690x637_5.webp`,
       alt: "A man zip lining across Bolder Adventure Park",
